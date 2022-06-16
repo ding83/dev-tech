@@ -42,7 +42,7 @@ class StoreRequestTest extends TestCase
      */
     public function test_can_store_with_full_params()
     {
-        $title = $this->faker->text(5000);
+        $title = $this->faker->text(15);
         $company = $this->faker->name();
         $owner = $this->faker->name();
         $wysiwyg = "<p>Test</p>";
@@ -59,7 +59,7 @@ class StoreRequestTest extends TestCase
             'expires_at' => $expire,
             'is_active' => $active
         ]);
-        $systemUnderTest->assertStatus(201);
+        $systemUnderTest->assertStatus(200);
         $systemUnderTest->assertJsonPath('title', $title);
         $systemUnderTest->assertJsonPath('company', $company);
         $systemUnderTest->assertJsonPath('owner', $owner);
@@ -126,7 +126,7 @@ class StoreRequestTest extends TestCase
     public function test_can_update_with_full_params()
     {
         $job = Job::factory()->create();
-        $title = $this->faker->text(5000);
+        $title = $this->faker->text(15);
         $company = $this->faker->name();
         $owner = $this->faker->name();
         $wysiwyg = "<p>Test123141</p>";
