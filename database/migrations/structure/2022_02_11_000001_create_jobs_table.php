@@ -15,14 +15,14 @@ return new class extends Migration {
     {
         Schema::create('job', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('company');
-            $table->text('wysiwyg');
+            $table->string('title')->nullable();
+            $table->string('slug')->unique()->nullable();
+            $table->string('company')->nullable();
+            $table->text('wysiwyg')->nullable();
             $table->string('owner')->nullable();
-            $table->date('starts_at');
-            $table->date('expires_at');
-            $table->boolean('is_active');
+            $table->date('starts_at')->nullable();
+            $table->date('expires_at')->nullable();
+            $table->boolean('is_active')->default(0);
             $table->string('status')->default(Job::STATUS_PENDING);
             $table->timestamps();
         });
