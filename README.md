@@ -9,7 +9,7 @@
 
 # To run the application.
 * docker-compose -f docker-compose-dev.yml up (Note: to run this for the first time you need to docker-compose -f docker-compose-dev.yml build)
-* docker exec -it &lt;the-container-id-of-the-api bash
+* docker exec -it &lt;the-container-id-of-the-api&gt bash
 * composer install
 * php artisan migrate:fresh --path=./database/migrations/structure
 
